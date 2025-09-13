@@ -1,97 +1,168 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Fyxlife Fitness Tracking App 🌱
 
-# Getting Started
+A comprehensive fitness tracking mobile app built with React Native, featuring a complete onboarding flow and modern UI/UX design. Built with Redux for state management and a clean component/presentation architecture using Higher-Order Components (HOCs).
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+### Onboarding Flow
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+- **Welcome Screen**: Beautiful introduction with app branding and feature highlights
+- **User Info Screen**: Comprehensive user data collection including:
+  - Personal information (Name, Age, Phone)
+  - Gender selection
+  - Activity level assessment
+  - Optional height and weight tracking
+- **Confirmation Screen**: Profile summary and next steps overview
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### Technical Features
 
-```sh
-# Using npm
+- Cross-platform React Native app (iOS & Android)
+- TypeScript for type safety
+- React Navigation for smooth screen transitions
+- **Redux Toolkit** for state management with persistence
+- **Component/Presentation Architecture** with separation of concerns
+- **Higher-Order Components (HOCs)** for reusable functionality
+- Modern, accessible UI design
+- Form validation and error handling
+- Responsive design for different screen sizes
+
+## Architecture
+
+### Component/Presentation Pattern
+
+The app follows a clean architecture pattern with:
+
+- **Presentation Components**: Pure UI components that only handle rendering
+- **Container Components**: Connect presentation components to Redux state
+- **Higher-Order Components (HOCs)**: Provide reusable functionality like validation, navigation, and state management
+
+### Redux State Management
+
+- **Redux Toolkit** for modern Redux development
+- **Redux Persist** for state persistence across app sessions
+- **Typed hooks** for type-safe state access
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── containers/              # Container components (Redux-connected)
+│   │   ├── WelcomeContainer.tsx
+│   │   ├── UserInfoContainer.tsx
+│   │   ├── ConfirmationContainer.tsx
+│   │   └── MainAppContainer.tsx
+│   ├── presentation/            # Pure presentation components
+│   │   ├── WelcomePresentation.tsx
+│   │   ├── UserInfoPresentation.tsx
+│   │   └── ConfirmationPresentation.tsx
+│   └── index.ts                 # Component exports
+├── hoc/                         # Higher-Order Components
+│   ├── withOnboarding.tsx       # Redux state management HOC
+│   ├── withValidation.tsx       # Form validation HOC
+│   ├── withNavigation.tsx       # Navigation HOC
+│   └── index.ts                 # HOC exports
+├── store/                       # Redux store configuration
+│   ├── index.ts                 # Store setup and configuration
+│   ├── hooks.ts                 # Typed Redux hooks
+│   └── slices/
+│       └── onboardingSlice.ts   # Onboarding state slice
+├── navigation/
+│   ├── AppNavigator.tsx         # Main app navigation
+│   └── OnboardingNavigator.tsx  # Onboarding flow navigation
+└── types/
+    └── index.ts                 # TypeScript type definitions
+```
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (>=20)
+- React Native development environment
+- iOS Simulator (for iOS development)
+- Android Studio (for Android development)
+
+### Installation
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. For iOS, install pods:
+
+```bash
+cd ios && pod install
+```
+
+3. Start the Metro bundler:
+
+```bash
 npm start
-
-# OR using Yarn
-yarn start
 ```
 
-## Step 2: Build and run your app
+4. Run on iOS:
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+```bash
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+5. Run on Android:
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```bash
+npm run android
+```
 
-## Step 3: Modify your app
+## Architecture Benefits
 
-Now that you have successfully run the app, let's make changes!
+### Component/Presentation Pattern
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+- **Separation of Concerns**: UI logic separated from business logic
+- **Reusability**: Presentation components can be reused with different containers
+- **Testability**: Easy to test presentation components in isolation
+- **Maintainability**: Clear structure makes code easier to maintain
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+### Higher-Order Components (HOCs)
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+- **withOnboarding**: Provides Redux state and actions for onboarding flow
+- **withValidation**: Handles form validation with configurable rules
+- **withNavigation**: Provides navigation functionality
+- **Composability**: HOCs can be combined for complex functionality
 
-## Congratulations! :tada:
+### Redux Benefits
 
-You've successfully run and modified your React Native App. :partying_face:
+- **Predictable State**: State changes are predictable and traceable
+- **Persistence**: User data persists across app sessions
+- **DevTools**: Excellent debugging with Redux DevTools
+- **Scalability**: Easy to add new features and state slices
 
-### Now what?
+## App Flow
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+1. **Welcome Screen**: Users see the app introduction with the Fyxlife branding
+2. **User Info Screen**: Users fill out their profile information with validation
+3. **Confirmation Screen**: Users review their profile and complete onboarding
+4. **Main App**: Users access the main fitness tracking features
 
-# Troubleshooting
+## Development Notes
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+- **State Management**: Redux with persistence for user profile data
+- **Form Validation**: Configurable validation rules with real-time feedback
+- **Navigation**: Disabled during onboarding to ensure proper flow
+- **Type Safety**: Full TypeScript implementation throughout
+- **Architecture**: Clean separation between UI and business logic
+- **HOCs**: Reusable functionality for common patterns
 
-# Learn More
+## Future Enhancements
 
-To learn more about React Native, take a look at the following resources:
+- Fitness tracking features (workouts, steps, calories)
+- Goal setting and progress monitoring
+- Social features and challenges
+- Integration with health devices
+- Push notifications for motivation
+- Data export and backup
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+---
+
+Built with ❤️ for Fyxlife's fitness tracking vision using modern React Native architecture patterns.
