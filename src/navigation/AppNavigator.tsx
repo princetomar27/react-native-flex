@@ -3,11 +3,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useAppSelectorTyped } from '../store/hooks';
 import OnboardingNavigator from './OnboardingNavigator';
-import MainAppScreen from './screens/onboarding/MainAppScreen';
+import DashboardScreen from './screens/dashboard/DashboardScreen';
+import ProgressScreen from './screens/progress/ProgressScreen';
 
 export type RootStackParamList = {
   Onboarding: undefined;
-  MainApp: undefined;
+  Dashboard: undefined;
+  Progress: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -21,7 +23,10 @@ export default function AppNavigator() {
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {isCompleted ? (
-          <Stack.Screen name="MainApp" component={MainAppScreen} />
+          <>
+            <Stack.Screen name="Dashboard" component={DashboardScreen} />
+            <Stack.Screen name="Progress" component={ProgressScreen} />
+          </>
         ) : (
           <Stack.Screen name="Onboarding" component={OnboardingNavigator} />
         )}
