@@ -2,6 +2,12 @@
 
 A comprehensive fitness tracking mobile app built with React Native, featuring a complete onboarding flow and modern UI/UX design. Built with Redux for state management and a clean component/presentation architecture using Higher-Order Components (HOCs).
 
+
+
+https://github.com/user-attachments/assets/c93fff43-28d4-4dd1-8614-c7ef4fb170d2
+
+
+
 ## Features
 
 ### Onboarding Flow
