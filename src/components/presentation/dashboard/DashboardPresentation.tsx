@@ -29,6 +29,7 @@ interface DashboardPresentationProps {
   onGoalPress: (goalId: string) => void;
   onAddActivity: () => void;
   onViewProgress: () => void;
+  onViewRisks: () => void;
   onSettings: () => void;
 }
 
@@ -38,6 +39,7 @@ export default function DashboardPresentation({
   onGoalPress,
   onAddActivity,
   onViewProgress,
+  onViewRisks,
   onSettings,
 }: DashboardPresentationProps) {
   const getProgressPercentage = (current: number, target: number) => {
@@ -194,6 +196,16 @@ export default function DashboardPresentation({
             <TouchableOpacity style={styles.actionButton}>
               <Text style={styles.actionIcon}>😴</Text>
               <Text style={styles.actionText}>Sleep Log</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.actionButton} onPress={onViewRisks}>
+              <Text style={styles.actionIcon}>🩺</Text>
+              <Text style={styles.actionText}>Risk-o-meter</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.actionButton}>
+              <Text style={styles.actionIcon}>📈</Text>
+              <Text style={styles.actionText}>Analytics</Text>
             </TouchableOpacity>
           </View>
         </View>

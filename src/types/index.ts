@@ -91,3 +91,49 @@ export interface OnboardingState {
 }
 
 export type OnboardingStep = 'welcome' | 'userInfo' | 'confirmation';
+
+export interface HealthRisk {
+  id: string;
+  name: string;
+  description: string;
+  riskLevel: 'low' | 'moderate' | 'high' | 'critical';
+  riskPercentage: number;
+  bioSystem:
+    | 'cardiovascular'
+    | 'neurological'
+    | 'digestive'
+    | 'musculoskeletal'
+    | 'endocrine'
+    | 'respiratory';
+  organ?: string;
+  factors: string[];
+  recommendations: string[];
+  icon: string;
+  color: string;
+}
+
+export interface RiskAssessment {
+  overallRiskScore: number;
+  riskLevel: 'low' | 'moderate' | 'high' | 'critical';
+  bioSystemRisks: {
+    [key: string]: {
+      averageRisk: number;
+      riskLevel: 'low' | 'moderate' | 'high' | 'critical';
+      riskCount: number;
+    };
+  };
+  topRisks: HealthRisk[];
+  improvementPotential: number;
+}
+
+export interface RiskState {
+  currentRisks: HealthRisk[];
+  riskAssessment: RiskAssessment;
+  selectedBioSystem: string | null;
+  lastAssessmentDate: string;
+  riskHistory: {
+    date: string;
+    overallScore: number;
+    bioSystemScores: { [bioSystem: string]: number };
+  }[];
+}

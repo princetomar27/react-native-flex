@@ -8,6 +8,8 @@ export { default as MainAppContainer } from './containers/onboarding/MainAppCont
 export { default as DashboardContainer } from './containers/dashboard/DashboardContainer';
 // 3. Progress
 export { default as ProgressContainer } from './containers/progress/ProgressContainer';
+// 4. Risk
+export { default as RiskContainer } from './containers/risk/RiskContainer';
 
 // Presentation Components
 // 1. Onboarding
@@ -19,3 +21,5 @@ export { default as MainAppPresentation } from './presentation/onboarding/MainAp
 export { default as DashboardPresentation } from './presentation/dashboard/DashboardPresentation';
 // 3. Progress
 export { default as ProgressPresentation } from './presentation/progress/ProgressPresentation';
+// 4. Risk
+export { default as RiskPresentation } from './presentation/risk/RiskPresentation';
