@@ -6,7 +6,7 @@ import {
   previousStep,
 } from '../../../store/slices/onboardingSlice';
 import { UserProfile } from '../../../types';
-import { UserInfoPresentation } from '../..';
+import UserInfoPresentation from '../../presentation/onboarding/UserInfoPresentation';
 
 export default function UserInfoContainer() {
   const dispatch = useAppDispatch();
