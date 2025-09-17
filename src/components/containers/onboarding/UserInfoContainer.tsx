@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useAppDispatch, useAppSelectorTyped } from '../../store/hooks';
+import { useAppDispatch, useAppSelectorTyped } from '../../../store/hooks';
 import {
   updateProfile,
   nextStep,
   previousStep,
-} from '../../store/slices/onboardingSlice';
-import UserInfoPresentation from '../presentation/UserInfoPresentation';
-import { UserProfile } from '../../types';
+} from '../../../store/slices/onboardingSlice';
+import { UserProfile } from '../../../types';
+import { UserInfoPresentation } from '../..';
 
 export default function UserInfoContainer() {
   const dispatch = useAppDispatch();

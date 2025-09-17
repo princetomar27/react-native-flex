@@ -1,7 +1,7 @@
 import React from 'react';
-import { useAppDispatch, useAppSelectorTyped } from '../../store/hooks';
-import { resetOnboarding } from '../../store/slices/onboardingSlice';
-import MainAppPresentation from '../presentation/MainAppPresentation';
+import { useAppDispatch, useAppSelectorTyped } from '../../../store/hooks';
+import { resetOnboarding } from '../../../store/slices/onboardingSlice';
+import MainAppPresentation from '../../presentation/onboarding/MainAppPresentation';
 
 export default function MainAppContainer() {
   const dispatch = useAppDispatch();

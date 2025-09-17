@@ -1,7 +1,7 @@
 import React from 'react';
-import { useAppDispatch, useAppSelectorTyped } from '../../store/hooks';
-import { completeOnboarding } from '../../store/slices/onboardingSlice';
-import ConfirmationPresentation from '../presentation/ConfirmationPresentation';
+import { useAppDispatch, useAppSelectorTyped } from '../../../store/hooks';
+import { completeOnboarding } from '../../../store/slices/onboardingSlice';
+import ConfirmationPresentation from '../../presentation/onboarding/ConfirmationPresentation';
 
 export default function ConfirmationContainer() {
   const dispatch = useAppDispatch();

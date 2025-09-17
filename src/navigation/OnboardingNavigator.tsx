@@ -1,8 +1,8 @@
 import React from 'react';
 import { useAppSelectorTyped } from '../store/hooks';
-import WelcomeScreen from './screens/WelcomeScreen';
-import UserInfoScreen from './screens/UserInfoScreen';
-import ConfirmationScreen from './screens/ConfirmationScreen';
+import WelcomeScreen from './screens/onboarding/WelcomeScreen';
+import UserInfoScreen from './screens/onboarding/UserInfoScreen';
+import ConfirmationScreen from './screens/onboarding/ConfirmationScreen';
 
 export default function OnboardingNavigator() {
   const currentStep = useAppSelectorTyped(
