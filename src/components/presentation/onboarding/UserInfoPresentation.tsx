@@ -8,7 +8,7 @@ import {
   SafeAreaView,
   ScrollView,
 } from 'react-native';
-import { UserProfile } from '../../types';
+import { UserProfile } from '../../../types';
 
 const GENDER_OPTIONS = [
   { label: 'Male', value: 'male' },

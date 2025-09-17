@@ -7,7 +7,7 @@ import {
   SafeAreaView,
   ScrollView,
 } from 'react-native';
-import { UserProfile } from '../../types';
+import { UserProfile } from '../../../types';
 
 interface ConfirmationPresentationProps {
   userProfile: UserProfile;

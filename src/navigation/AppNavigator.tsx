@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { useAppSelectorTyped } from '../store/hooks';
 import OnboardingNavigator from './OnboardingNavigator';
-import MainAppScreen from './screens/MainAppScreen';
+import MainAppScreen from './screens/onboarding/MainAppScreen';
 
 export type RootStackParamList = {
   Onboarding: undefined;

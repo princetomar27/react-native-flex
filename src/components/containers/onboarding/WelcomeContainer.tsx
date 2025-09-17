@@ -1,7 +1,7 @@
 import React from 'react';
-import { useAppDispatch, useAppSelectorTyped } from '../../store/hooks';
-import { nextStep } from '../../store/slices/onboardingSlice';
-import WelcomePresentation from '../presentation/WelcomePresentation';
+import { useAppDispatch, useAppSelectorTyped } from '../../../store/hooks';
+import { nextStep } from '../../../store/slices/onboardingSlice';
+import WelcomePresentation from '../../presentation/onboarding/WelcomePresentation';
 
 export default function WelcomeContainer() {
   const dispatch = useAppDispatch();
