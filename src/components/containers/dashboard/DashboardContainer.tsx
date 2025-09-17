@@ -137,6 +137,10 @@ export default function DashboardContainer() {
     navigation.navigate('Progress');
   };
 
+  const handleViewRisks = () => {
+    navigation.navigate('Risk');
+  };
+
   const handleSettings = () => {
     Alert.alert('Settings', 'Choose an option:', [
       { text: 'Cancel', style: 'cancel' },
@@ -176,6 +180,7 @@ export default function DashboardContainer() {
       onGoalPress={handleGoalPress}
       onAddActivity={handleAddActivity}
       onViewProgress={handleViewProgress}
+      onViewRisks={handleViewRisks}
       onSettings={handleSettings}
     />
   );

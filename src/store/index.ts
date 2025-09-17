@@ -4,17 +4,19 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import onboardingReducer from './slices/onboardingSlice';
 import dashboardReducer from './slices/dashboardSlice';
 import progressReducer from './slices/progressSlice';
+import riskReducer from './slices/riskSlice';
 
 const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
-  whitelist: ['onboarding', 'dashboard', 'progress'], // Persist all state
+  whitelist: ['onboarding', 'dashboard', 'progress', 'risk'], // Persist all state
 };
 
 const rootReducer = combineReducers({
   onboarding: onboardingReducer,
   dashboard: dashboardReducer,
   progress: progressReducer,
+  risk: riskReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -94,5 +96,58 @@ export type PersistedState = {
     longestStreak: number;
     selectedTimeRange: 'today' | 'week' | 'month';
     selectedCategory: string | null;
+  };
+  risk: {
+    currentRisks: Array<{
+      id: string;
+      name: string;
+      description: string;
+      riskLevel: 'low' | 'moderate' | 'high' | 'critical';
+      riskPercentage: number;
+      bioSystem:
+        | 'cardiovascular'
+        | 'neurological'
+        | 'digestive'
+        | 'musculoskeletal'
+        | 'endocrine'
+        | 'respiratory';
+      organ?: string;
+      factors: string[];
+      recommendations: string[];
+      icon: string;
+      color: string;
+    }>;
+    riskAssessment: {
+      overallRiskScore: number;
+      riskLevel: 'low' | 'moderate' | 'high' | 'critical';
+      bioSystemRisks: {
+        [key: string]: {
+          averageRisk: number;
+          riskLevel: 'low' | 'moderate' | 'high' | 'critical';
+          riskCount: number;
+        };
+      };
+      topRisks: Array<{
+        id: string;
+        name: string;
+        description: string;
+        riskLevel: 'low' | 'moderate' | 'high' | 'critical';
+        riskPercentage: number;
+        bioSystem: string;
+        organ?: string;
+        factors: string[];
+        recommendations: string[];
+        icon: string;
+        color: string;
+      }>;
+      improvementPotential: number;
+    };
+    selectedBioSystem: string | null;
+    lastAssessmentDate: string;
+    riskHistory: Array<{
+      date: string;
+      overallScore: number;
+      bioSystemScores: { [bioSystem: string]: number };
+    }>;
   };
 };
